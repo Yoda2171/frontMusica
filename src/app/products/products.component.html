@@ -1,0 +1,18 @@
+
+<div class="product-list">
+  
+  <h1>Lista de Productos</h1>
+  <button class="add-to-cart" routerLink="/listproducts">Agregar un Producto</button>
+  <ul>
+    <li *ngFor="let produtc of products">
+      
+      <div class="product-details">
+        <span class="product-name">{{produtc.productId}}</span>
+        <span class="product-price"> {{produtc.quantity}}</span>
+      </div>
+      <button class="add-to-cart"  (onclick)="addCart(produtc)">Agregar al carrito</button>
+    </li>
+    
+    
+  </ul>
+</div>

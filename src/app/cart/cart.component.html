@@ -1,0 +1,12 @@
+
+
+  <div class="cart-container">
+    <h2>Carrito de Compras</h2>
+    <ul>
+      <li *ngFor="let product of products">{{ product.productId }} - {{ product.quantity }}</li>
+    </ul>
+    <div class="total">
+      <span>Total:</span>
+      <span>{{ calculateTotal() }}</span>
+    </div>
+  </div>
