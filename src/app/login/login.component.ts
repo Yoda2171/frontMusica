@@ -29,7 +29,7 @@ export class LoginComponent {
       next: (res:any) => {
         if(res.success){
           localStorage.setItem('user', JSON.stringify(res.data));
-          this.router.navigate(['/products']); 
+          window.location.href = '/products';
         }else{
           alert('Usuario o contraseña incorrectos');
         }

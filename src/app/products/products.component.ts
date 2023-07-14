@@ -38,7 +38,7 @@ export class ProductsComponent {
     .subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/cart']);
+        alert('Producto agregado al carrito');
       },
       err => console.log(err)
     )
