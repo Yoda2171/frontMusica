@@ -36,6 +36,10 @@ export class CartService {
     return this.http.post(url, requestData);
   }
 
+  deleteproduct(idcart: number, idproduct: number){
+    return this.http.delete(`http://localhost:3000/cart/${idcart}/delete/${idproduct}`);
+    
+  }
 
 
 }
