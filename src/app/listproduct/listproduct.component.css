@@ -34,6 +34,7 @@ body {
   
   .create-product input[type="text"],
   .create-product input[type="number"],
+  .create-product select,
   .create-product textarea {
     width: 100%;
     padding: 5px;

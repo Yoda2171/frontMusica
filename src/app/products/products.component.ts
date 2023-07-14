@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../services/products.service';
-import {  Products } from '../interfaces/products';
+import { Productos } from '../interfaces/productos';
 import { Router } from '@angular/router';
 import { Cart } from '../interfaces/cart';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -11,38 +12,52 @@ import { Cart } from '../interfaces/cart';
 })
 export class ProductsComponent {
 
-  products:Products[] = [
-    { productId: '',
-    quantity: 0,}
+  productos:Productos[] = [
+    { nombre: '',
+    precio: 0,}
   ];
-  cart: any = [];
+  
 
   constructor(
     private productService:ProductsService,
     private router:Router,
+    private cartService: CartService
     
   ){}
   ngOnInit(){
     this.getAllProduct();
   }
 
-  addCart(products:Products){
-    console.log(products)
-    /* this.cart.push(products); */ 
-   
-  }
+  addCart(products:Productos){
 
-  getAllProduct(){
-    this.productService.getAllCart()
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    console.log(user);
+    console.log(products);
+
+    this.cartService.addToCart(user,products)
     .subscribe(
       res => {
         console.log(res);
-        this.products=res;
+        this.router.navigate(['/cart']);
+      },
+      err => console.log(err)
+    )
+
+  }
+
+  getAllProduct(){
+    this.productService.getAllproduct()
+    .subscribe(
+      res => {
+        console.log(res);
+        this.productos=res;
         
       },
       err => console.log(err)
     )
   }
+
+  
 
 
 

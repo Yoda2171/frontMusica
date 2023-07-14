@@ -1,14 +1,25 @@
 <div class="create-product">
     <h1>Crear Producto</h1>
-    <form (submit)="submitProduct()">
+    <form [formGroup]="formProduct" (submit)="submitProduct()">
       <label for="name">Nombre:</label>
-      <input type="text" id="name" name="name" placeholder="Nombre del producto" [(ngModel)]="products.productId" required>
+      <input type="text" id="name" name="name" placeholder="Nombre del producto"  formControlName="nombre" required>
+
+      <label for="marca">Marca:</label>
+      <input type="text" id="marca" name="marca" placeholder="Marca del producto"  formControlName="marca" required>
+
+      <label for="modelo">Modelo:</label>
+      <input type="text" id="modelo" name="modelo" placeholder="Modelo del producto" formControlName="modelo" required>
   
       <label for="price">Precio:</label>
-      <input type="number" id="price" name="price" placeholder="Precio del producto" [(ngModel)]="products.quantity" required>
+      <input type="number" id="price" name="price" placeholder="Precio del producto"  formControlName="precio" required>
+
+      <label for="cateogoria">Categoria:</label>
+      
+      <select name="categoria" id="categoria"  formControlName="categoria">
+        <option *ngFor="let item of categorias" [value]="item.id">{{ item.categoria }}</option>
+      </select>
   
-  
-      <button type="submit" >Crear</button>
+      <button type="submit">Crear</button>
     </form>
   </div>
   

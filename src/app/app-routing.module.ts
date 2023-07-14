@@ -4,12 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductsComponent } from './products/products.component';
 import { ListproductComponent } from './listproduct/listproduct.component';
+import { ProcesandopagoComponent } from './procesandopago/procesandopago.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent }, 
   { path: 'cart', component: CartComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'listproducts', component: ListproductComponent },
+  {path:'procesandopago', component:ProcesandopagoComponent}
 
 ];
 

@@ -16,7 +16,7 @@ export class LoginService {
   BASE_URL= 'http://localhost:3000'
 
 
-  userLogin(user: Login): Observable<Login>{
+  userLogin(user: Login){
     return this.http.post<Login>(`${this.BASE_URL}/auth/login`, user)
   }
 }

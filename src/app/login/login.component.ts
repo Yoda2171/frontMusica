@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
-import { Login } from '../interfaces/login';
+import { Data, Login } from '../interfaces/login';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,14 +25,26 @@ export class LoginComponent {
   submitLogin(){
     console.log(this.user);
     this.userService.userLogin(this.user)
-    .subscribe(
-      res => {
+    .subscribe({
+      next: (res:any) => {
+        if(res.success){
+          localStorage.setItem('user', JSON.stringify(res.data));
+          this.router.navigate(['/products']); 
+        }else{
+          alert('Usuario o contraseña incorrectos');
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    }
+      /* res => {
         
         console.log(res);
-        
+      
         this.router.navigate(['/products'])
       },
-      err => console.log(err)
+      err => console.log(err) */
     )
   }
 }

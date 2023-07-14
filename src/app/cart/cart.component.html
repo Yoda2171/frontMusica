@@ -1,12 +1,14 @@
-
-
+<form method="POST" (ngSubmit)="createWebpayTransaction(carrito.id, carrito.totalPrice)">
   <div class="cart-container">
     <h2>Carrito de Compras</h2>
     <ul>
-      <li *ngFor="let product of products">{{ product.productId }} - {{ product.quantity }}</li>
+      <li *ngFor="let product of carrito.products">{{ product.nombre }} - {{ product.precio }}</li>
     </ul>
     <div class="total">
       <span>Total:</span>
-      <span>{{ calculateTotal() }}</span>
+      <span>{{carrito.totalPrice}}</span>
     </div>
+    <input type="hidden" name="token_ws" [value]="token" />
+    <button  type="submit" >Pagar con Webpay</button>
   </div>
+</form>
