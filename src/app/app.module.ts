@@ -11,6 +11,7 @@ import { ListproductComponent } from './listproduct/listproduct.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProcesandopagoComponent } from './procesandopago/procesandopago.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ProcesandopagoComponent } from './procesandopago/procesandopago.compone
     ProductsComponent,
     ListproductComponent,
     ProcesandopagoComponent,
+    RegisterComponent,
     
     
     

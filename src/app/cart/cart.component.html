@@ -2,18 +2,15 @@
   <div class="cart-container">
     <h2>Carrito de Compras</h2>
     <ul>
-      <li class="row" *ngFor="let product of carrito.products">{{ product.nombre }} - {{ product.precio }}
+      <li class="row" *ngFor="let product of carrito.products">{{ product.nombre }} - ${{ product.precio }}
         <div class="text-right">
           <button type="button" class=" btn btn-danger" (click)="deleteproduct(carrito.id,product.id)" >X</button>
         </div>
-        
       </li>
-    
-      
     </ul>
     <div class="total">
       <span>Total:</span>
-      <span>{{carrito.totalPrice}}</span>
+      <span>${{carrito.totalPrice}}</span>
     </div>
     <input type="hidden" name="token_ws" [value]="token" />
     <button  type="submit" class="btn btn-success">Pagar con Webpay</button>

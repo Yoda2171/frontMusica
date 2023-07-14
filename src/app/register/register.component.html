@@ -1,0 +1,12 @@
+<div class="login-container">
+    <h2>Registrar</h2>
+    <form (submit)="submitRegister()">
+      <label for="username">Correo:</label>
+      <input type="email" id="username" name="username" [(ngModel)]="user.username">
+      
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password">
+      
+      <button type="submit" >Registrar</button>
+    </form>
+  </div>

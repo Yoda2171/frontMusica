@@ -19,4 +19,8 @@ export class LoginService {
   userLogin(user: Login){
     return this.http.post<Login>(`${this.BASE_URL}/auth/login`, user)
   }
+
+  userRegister(user: Login){
+    return this.http.post<Login>(`${this.BASE_URL}/auth/register`, user)
+  }
 }
